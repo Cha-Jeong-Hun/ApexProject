@@ -1,0 +1,545 @@
+/* 폰트 설정 260513 폰트 설정 오류로 인한 주석 처리 */
+/*
+@font-face {
+  font-family: 'MyCustomFont';
+  src: url('#APP_FILES#NotoSansKR-Light.ttf') format('woff2');
+}
+*/
+/* 화면의 전체 틀 */
+ /*과한 가로 스크롤바로 인한 주석 처리*/
+/* 
+form{
+ 
+    width: 100% !important;
+    height: 100% !important;
+    margin:  0 auto !important ;
+    padding: 0px     !important;
+
+} */
+
+
+:root {
+  --app-item-height: 40px;
+  --app-item-font-size: 13px;
+  --app-item-label-size: 11px;
+  --app-item-label-top: 2px;
+  --app-item-border-radius: 4px;
+}
+
+
+
+/* *,
+*::before,
+*::after {
+    box-sizing: border-box;
+} */
+html,
+body {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    font-family: 'MyCustomFont', sans-serif;
+}
+form {
+    width: 100% !important;
+    max-width: 100% !important;
+    /* overflow-x: hidden !important; 제거 */
+}
+/* APEX Body 영역만 화면 너비 제한 */
+/* form {
+    width: 100% !important;
+    max-width: 100% !important;
+    //overflow-x: hidden !important;
+} */
+
+ /* 네비게이터 아이콘 구현 */
+ 
+.commonness_icon:before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+   background-image: url(http://ifsk.fortiddns.com:28090//ords/info_dev/r/100/files/static/v1790/%EA%B3%B5%ED%86%B5.png);   
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.specification_icon:before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-image: url(http://infosolution.iptime.org:8090/ords/info_dev/r/100/files/static/v1794/사양관리_icon.png); 
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+
+.business_icon:before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-image: url(http://infosolution.iptime.org:8090/ords/info_dev/r/100/files/static/v1796/영업관리_icon.png); 
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.production_icon:before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-image: url(http://infosolution.iptime.org:8090/ords/info_dev/r/100/files/static/v1796/생산관리_icon.png);  
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+
+.outsourcing_icon:before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-image: url(http://infosolution.iptime.org:8090/ords/info_dev/r/100/files/static/v1796/외주관리_icon.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+
+.purchase_icon:before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-image: url(http://infosolution.iptime.org:8090/ords/info_dev/r/100/files/static/v1796/구매관리_icon.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+
+.material_icon:before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-image: url(http://infosolution.iptime.org:8090/ords/info_dev/r/100/files/static/v1796/자재관리_icon.png); 
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.quality_icon:before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-image: url(http://infosolution.iptime.org:8090/ords/info_dev/r/100/files/static/v1796/품질관리_icon.png); 
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.facility_icon:before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-image: url(http://infosolution.iptime.org:8090/ords/info_dev/r/100/files/static/v1796/설비관리_icon.png); 
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.computation_icon:before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-image: url(http://infosolution.iptime.org:8090/ords/info_dev/r/100/files/static/v1796/전산관리_icon.png);  
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+
+.accounting_icon:before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-image: url(http://infosolution.iptime.org:8090/ords/info_dev/r/100/files/static/v1796/회계관리_icon.png);  
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.hrm_icon:before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-image: url(http://ifsk.fortiddns.com:28090//ords/info_dev/r/100/files/static/v1796/인사관리_icon.png);  
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+
+.cost_icon:before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-image: url(http://infosolution.iptime.org:8090/ords/info_dev/r/100/files/static/v1796/원가관리_icon.png);  
+  background-size: contain;
+  background-repeat: no-repeat;
+} 
+
+.Gemini_icon:before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-image: url(http://infosolution.iptime.org:8090/ords/info_dev/r/100/files/static/v1796/ais.png);  
+  background-size: contain;
+  background-repeat: no-repeat;
+} 
+
+
+/*---------------템플릿 테스트---------------------*/
+/* 폭이 고정 크기만큼만 차지하게 (flex 컨텍스트에서도 늘어나지 않도록) */
+
+/* .t-Form-fieldContainer.t-Form-fieldContainer--floatingLabel .t-Form-inputContainer{
+  display:inline-block; flex:0 0 auto;
+  background-color: white !important;
+   padding-top: 6px !important; 
+   /*height:  크기 조절 , 더이상 조절 불가 추후 확인;
+} */
+
+
+/*영역 크기 조절*/
+.region-fixed-xsmall{
+  display:inline-block;
+  width:200px !important;
+  max-width:200px !important;
+}
+.region-fixed-small{
+  display:inline-block;
+  width:400px !important;
+  max-width:400px !important;
+}
+.region-fixed-medium{
+  display:inline-block;
+  width:600px !important;
+  max-width:600px !important;
+}
+.region-fixed-large{
+  display:inline-block;
+  width:100% !important;
+  max-width:100% !important;
+}
+/* X-Small = 200px */
+.t-Form-fieldContainer.t-Form-fieldContainer--floatingLabel.lblSize--xs
+  .t-Form-inputContainer {
+  width: 200px;
+  max-width: 200px;
+}
+
+
+/* Small = 400px */
+.t-Form-fieldContainer.t-Form-fieldContainer--floatingLabel.lblSize--sm
+  .t-Form-inputContainer {
+  width: 400px; 
+  max-width: 400px;
+}
+
+/* Medium = 600px */
+.t-Form-fieldContainer.t-Form-fieldContainer--floatingLabel.lblSize--md
+  .t-Form-inputContainer {
+  width: 600px;
+  max-width: 600px;
+}
+
+/* Large = 800px */
+.t-Form-fieldContainer.t-Form-fieldContainer--floatingLabel.lblSize--lg
+  .t-Form-inputContainer {
+  width: 800px;
+  max-width: 800px;
+}
+/* body:not(.t-PageBody--login)
+  :is( */
+/*display only 제외 배경 흰색 p9999 로그인 페이지만 제외*/
+body:not(.t-PageBody--login)
+  :is(.apex-item-multi, .apex-item-select, .apex-item-text, .apex-item-textarea,
+      .datetimepicker_newMonth, .u-TF-item--select, .u-TF-item--text,
+      select.group_selectlist, select.listmanager,
+      input.oj-inputdatetime-input.oj-text-field-input) {
+  background-color: #fff !important;
+  padding-top: 22px !important;
+}
+
+/*  padding-top: 22px !important; */
+/* display only  크기 조정 */
+ .t-Form-inputContainer .display_only
+{
+         padding-top: 22px !important; 
+} 
+/* 모든 아이템 상하 좌우 여백 조정 */
+body:not(.t-PageBody--login)
+  :is(.t-Form-fieldContainer--floatingLabel.t-Form-fieldContainer)
+{
+         padding : 3px 10px !important; 
+}
+
+/*네비게이터 바 속성*/
+
+/*네비게이터 before navigation bar display only 글자색 조정*/
+#t_Header .apex-item-display-only,
+#t_Header .display_only {
+  color: var(--ut-body-text-color, #2b2f3a) !important;
+}
+
+
+/* 헤더 바 자체 높이 */
+
+
+/*-------------css button,input standard 페이지-----------------*/
+/* 체크박스 가운데 정렬 */
+.enable_flag{
+   display: flex;
+   justify-content: center;   /* 가로 중앙 */
+   align-items: center;       /* 세로 중앙 */
+}
+
+
+/* ----------------------버튼 이벤트------------------------------- */
+
+/* ui버튼 제거  260513 APEX 메시지를 위해 주석 처리*/
+/*.ui-button{
+        display: none;
+}
+*/
+/* xshort 버튼 */
+
+.xshort_button{
+        max-width:  50px;
+        margin: 3px !important;
+}
+
+.xshort_button button{
+    background-color: #d3e5fd !important; /* 해당 배경 색상 */
+    border: solid 1px #aac8ff !important;
+    color: #1b5ffe !important;     /* 폰트 색상 */
+    border-radius: 1px !important;   /* 모서리 둥굴게 */
+    font-size: 14px;                 /* 폰트 사이즈 */
+    font-weight: bold;
+    width: 100% !important;
+    height: 30px;
+    box-shadow: 1px 2px 0 rgb(0,0,0,0.5);  /* 버튼 그림자 효과 */
+
+}
+
+.xshort_button span {
+    /* 텍스트 가운데 정렬 */
+    white-space : normal;  /*크기가 클시 줄바꿈 처리*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.xshort_button button:hover {
+    /* hover : 동적 이벤트*/  
+    background-color: #6fa8ff !important; /* hover 시 배경색 변경 */
+    color : white !important;
+}
+
+.xshort_button button:focus {
+    /* focus : 탭으로 이동시 동적 이벤트트*/  
+    background-color: #6fa8ff !important; /* hover 시 배경색 변경 */
+    color : white !important;
+}
+
+
+.xshort_button button:active {
+  /* 버튼 클릭시 눌림 처리 */
+  box-shadow: 1px 1px 0 rgb(0,0,0,0.5);
+  position: relative;
+  top:2px;
+}
+
+
+/* short 버튼 */
+.short_button{
+        max-width: 100px !important;
+        margin: 3px !important;
+        /* height: 40px; */
+        /* margin: 5px; */
+}
+
+.short_button button{
+    background-color: #d3e5fd !important; /* 해당 배경 색상 */
+    border: solid 1px #aac8ff !important;
+    color: #1b5ffe !important;     /* 폰트 색상 */
+    border-radius: 1px !important;   /* 모서리 둥굴게 */
+    font-size: 14px;                 /* 폰트 사이즈 */
+    font-weight: bold;
+    width: 100px;
+    height: 30px;
+    box-shadow: 1px 2px 0 rgb(0,0,0,0.5);  /* 버튼 그림자 효과 */
+
+}
+ .short_button button[type="button"] {
+  /* 반응형 button 구현 */
+  width: 100%;
+  box-sizing: border-box;
+} 
+
+
+.short_button span {
+    /* 텍스트 가운데 정렬 */
+    white-space : normal;  /*크기가 클시 줄바꿈 처리*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-block; /* span은 기본적으로 inline이라 width가 안먹힐 수 있음 */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+.short_button button:hover {
+    /* hover : 동적 이벤트*/  
+    background-color: #6fa8ff !important; /* hover 시 배경색 변경 */
+    color : white !important;
+}
+
+.short_button button:focus {
+    /* focus : 탭으로 이동시 동적 이벤트*/  
+    background-color: #6fa8ff !important; /* hover 시 배경색 변경 */
+    color : white !important;
+}
+
+
+.short_button button:active {
+  /* 버튼 클릭시 눌림 처리 */
+  box-shadow: 1px 1px 0 rgb(0,0,0,0.5);
+  position: relative;
+  top:2px;
+}
+
+/* middle 버튼 */
+.middle_button {
+    max-width: 150px ;  
+    margin: 3px !important;
+    /* height:40px ;      
+    margin: 5px ; */
+}
+
+
+.middle_button button {
+    /* 버튼 크기 및 그림자 처리 */
+    background-color: #d3e5fd !important; /* 해당 배경 색상 */
+    border: solid 1px #aac8ff !important;
+    color: #1b5ffe !important;     /* 폰트 색상 */
+    border-radius: 1px !important;   /* 모서리 둥굴게 */
+    font-size: 14px;                 /* 폰트 사이즈 */
+    font-weight: bold;
+    width: 150px;
+    height: 30px;
+    cursor: pointer;                /*마우스 커서 위치시*/
+    box-shadow: 1px 2px 0 rgb(0,0,0,0.5);  /* 버튼 그림자 효과 */
+
+}
+
+.middle_button span {
+    /* 버튼 텍스트 가운데 정렬*/
+    white-space : normal;  /*크기가 클시 줄바꿈 처리*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.middle_button button:hover {
+    /* hover : 동적 이벤트*/  
+    background-color: #6fa8ff !important; /* hover 시 배경색 변경 */
+    color : white !important;
+}
+
+.middle_button button:focus {
+    /* focus : 탭으로 이동시 동적 이벤트*/  
+    background-color: #6fa8ff !important; /* hover 시 배경색 변경 */
+    color : white !important;
+}
+
+
+.middle_button button:active {
+  /* 버튼 클릭시 눌림 처리 */
+  box-shadow: 1px 1px 0 rgb(0,0,0,0.5);
+  position: relative;
+  top:2px;
+}
+
+/* long 버튼 */
+.long_button {
+    max-width: 200px ;  
+    margin: 3px !important;
+    /* height:40px ; 
+    margin: 5px ; */
+}
+
+ .long_button button {
+    /* 버튼 크기 및 그림자 효과 */
+    background-color: #d3e5fd !important; /* 해당 배경 색상 */
+    color: #1b5ffe !important;     /* 폰트 색상 */
+    border-radius: 1px !important;   /* 모서리 둥굴게 */
+    border :  none !important;
+    /* border: solid 1px #aac8ff !important; */
+    font-size: 16px;                 /* 폰트 사이즈 */
+    font-weight: bold;
+    width: 200px;
+    height: 30px;
+    cursor: pointer;                /*마우스 커서 위치시*/
+    box-shadow: 1px 2px 0 rgb(0,0,0,0.5);
+
+} 
+
+.long_button span {
+    /* 버튼 텍스트 가운데 정렬*/
+    white-space : normal;  /*크기가 클시 줄바꿈 처리*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.long_button button:hover {
+    /* hover : 동적 이벤트*/  
+    background-color: #6fa8ff !important; /* hover 시 배경색 변경 */
+    color : white !important;
+}
+
+.long_button button:focus {
+    /* focus : 탭으로 이동시 동적 이벤트*/  
+    background-color: #6fa8ff !important; /* hover 시 배경색 변경 */
+    color : white !important;
+}
+
+.long_button button:active {
+  /* 버튼 눌림 이벤트 */
+  box-shadow: 1px 1px 0 rgb(0,0,0,0.5);
+  position: relative;
+  top:2px;
+}
+
+
+/*------- 그리드 이벤트 --------*/
+.a-GV-w-hdr th{
+    /* 그리드의 헤더는 따로 식별이 불가능 */
+     font-size: 12px !important;
+     /* border: solid 1px #1bb6fe;    */
+     background-color: #d3e5fd !important; /* 해당 배경 색상 */
+     text-align: center !important;          /* 그리드의 헤더 가운데 정렬*/
+     
+
+} 
+/*필수값 지정*/
+.a-IG .a-GV-table td.req-col {
+  background-color: #fff7cc !important; 
+}
+/* ------------------------------ */
+

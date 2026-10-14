@@ -1,0 +1,16 @@
+/* Page 919 - QZ Tray connection status */
+#QZ_CONNECT_STATUS .qz-connect-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 16px;
+    margin: 8px 0;
+    border: 1px solid #8eb9e8;
+    border-radius: 4px;
+    background: #eef6ff;
+    font-weight: 600;
+}
+
+#QZ_CONNECT_STATUS .fa-spinner {
+    font-size: 18px;
+}

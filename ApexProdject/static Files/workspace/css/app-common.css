@@ -1,0 +1,1995 @@
+/* =========================================================
+   Oracle APEX Application Common CSS - Clean Version
+   ---------------------------------------------------------
+   원칙
+   1. Universal Theme 클래스(.t-*, .a-*, .u-*, .apex-*)를
+      단독 전역 선택자로 재정의하지 않는다.
+   2. 사용자 정의 클래스(app-*, btn-*) 또는 Static ID 아래에서만
+      Universal Theme 내부 요소를 제한적으로 선택한다.
+   3. 중복 규칙과 전역 !important 사용을 최소화한다.
+   ========================================================= */
+
+:root {
+  --app-item-height: 40px;
+  --app-textarea-height: 100px;
+  --app-item-font-size: 12px;
+  --app-checkbox-size: 16px;
+  --app-item-border-radius: 2px;
+  --app-btn-height: 30px;
+  --app-btn-width: 105px;
+  --app-btn-small-height: 30px;
+  --app-btn-font-size: 13px;
+  --app-btn-radius: 2px;
+  --app-Region-0px-Margin : 0px;
+  --app-Region-4px-Margin : 4px;
+  --app-Region-8px-Margin : 8px;
+  --app-Region-16px-Margin : 16px;
+  --app-btn-padding-x: 14px;
+  --app-color-primary: #2563eb;
+  --app-color-primary-hover: #1d4ed8;
+  --app-color-secondary: #6b7280;
+  --app-color-secondary-hover: #4b5563;
+  --app-color-success: #16a34a;
+  --app-color-success-hover: #15803d;
+  --app-color-danger: #dc2626;
+  --app-color-danger-hover: #b91c1c;
+  --app-color-warning: #f39508;
+  --app-color-search: #2cc805;
+  --app-color-border: #d1d5db;
+  --app-color-text: #111827;
+  --app-color-muted-bg: #f9fafb;
+  --app-surface-bg: var(--ut-region-background-color, var(--a-region-background-color, #ffffff));
+  --app-surface-text: var(--ut-region-text-color, var(--a-region-text-color, #111827));
+  --app-field-bg: var(--a-field-input-background-color, var(--ut-field-background-color, #ffffff));
+  --app-field-text: var(--a-field-input-text-color, var(--ut-field-text-color, #111827));
+  --app-border-color: var(--ut-region-border-color, var(--a-field-input-border-color, #d1d5db));
+  --app-muted-surface-bg: var(--ut-component-background-color, var(--a-gv-background-color, #f3f4f6));
+}
+
+
+.app-ig-standard .a-GV-w-hdr th { 
+    height: 14px;
+    font-size: 11px;
+    }
+.t-Region-headerItems t-Region-headerItems--title{
+    padding-top: 8px;
+    padding-bottom: 8px;
+    } 
+/* 
+.t-Region-header     {
+    height: 40px;
+    font-size : 20px !important;
+    font-weight: bold !important;
+    } */
+
+/* Opt-in compact region */
+.app-region-compact { margin-block: 2px; }
+.app-region-compact > .t-Region-header { padding: 0; margin: 0; }
+.app-region-compact > .t-Region-header > .t-Region-headerItems {
+  padding: 4px 12px;
+  margin: 0;
+  box-sizing: border-box;
+}
+.app-region-compact > .t-Region-bodyWrap > .t-Region-body {
+  padding: 4px 12px;
+  margin: 0;
+}
+
+/* Opt-in form classes */
+.app-form-compact .t-Form-fieldContainer { min-height: var(--app-item-height); }
+.app-form-compact .t-Form-inputContainer,
+.app-form-compact .t-Form-itemWrapper {
+  min-height: var(--app-item-height);
+  padding-inline: 4px;
+  box-sizing: border-box;
+}
+.app-form-standard .apex-item-text,
+.app-form-standard .apex-item-select,
+.app-form-standard .apex-item-popup-lov,
+.app-form-standard input[type="text"],
+.app-form-standard input[type="number"],
+.app-form-standard input[type="date"],
+.app-form-standard input[type="password"],
+.app-form-standard input[type="email"],
+.app-form-standard input[type="tel"] {
+  height: var(--app-item-height);
+  min-height: var(--app-item-height);
+  max-height: var(--app-item-height);
+  font-size: var(--app-item-font-size);
+  border-radius: var(--app-item-border-radius);
+  box-sizing: border-box;
+}
+.app-form-full-width .t-Form-inputContainer,
+.app-form-full-width .t-Form-itemWrapper,
+.app-form-full-width input.apex-item-text,
+.app-form-full-width input[type="text"],
+.app-form-full-width input[type="number"],
+.app-form-full-width input[type="email"],
+.app-form-full-width input[type="tel"],
+.app-form-full-width input[type="password"],
+.app-form-full-width .apex-item-group--popup-lov {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.app-form-full-width .apex-item-group--popup-lov {
+  display: flex;
+  align-items: stretch;
+}
+.app-form-full-width .apex-item-group--popup-lov .apex-item-popup-lov,
+.app-form-full-width .apex-item-group--popup-lov input {
+  flex: 1 1 auto;
+  width: auto;
+  min-width: 0;
+  max-width: none;
+}
+.app-form-full-width .apex-item-group--popup-lov .a-Button--popupLOV,
+.app-form-full-width .apex-item-group--popup-lov button {
+  flex: 0 0 var(--app-item-height);
+  width: var(--app-item-height);
+  min-width: var(--app-item-height);
+  max-width: var(--app-item-height);
+}
+
+
+/* 그리드 체크박스 읽기전용 수정 */
+/* LOV Additional Output용 IG 읽기전용 표현 */
+/* =========================================================
+   IG LOV Additional Output - 사용자 수정 방지
+   ========================================================= */
+
+/* =========================================================
+   IG LOV Additional Output - 공통 Readonly 스타일
+   ========================================================= */
+
+/* 조회 / 신규 / 편집 상태의 셀 */
+.a-GV-cell.ig-readonly,
+.a-GV-cell.ig-readonly.is-active,
+.a-GV-cell.ig-readonly.is-focused,
+.a-GV-cell.ig-readonly.is-selected {
+     background-color: light-dark(#F9F9F9, #666666) !important; 
+}
+
+/* 편집 모드에서 생성되는 내부 Editor */
+.a-GV-cell.ig-readonly input,
+.a-GV-cell.ig-readonly textarea,
+.a-GV-cell.ig-readonly select,
+.a-GV-cell.ig-readonly .apex-item-text,
+.a-GV-cell.ig-readonly .apex-item-textarea {
+     background-color: light-dark(#F9F9F9, #666666) !important; 
+}
+
+/* =========================================================
+   ig-readonly Cell 자체는 Mouse Event 허용
+   → Click / Double Click 감지 가능
+   ========================================================= */
+ .a-GV-cell.ig-readonly {
+    pointer-events: auto !important;
+    cursor: default;
+} 
+
+
+/* =========================================================
+   모든 Interactive Grid 헤더 컬럼 구분선
+   ========================================================= */
+.a-GV-header {
+    border-right: 1px solid #d0d0d0 !important;
+}
+/* =========================================================
+   내부 입력 Control은 직접 Mouse 조작 차단
+   → Mouse Event가 상위 Cell로 전달됨
+   ========================================================= */
+.a-GV-cell.ig-readonly input,
+.a-GV-cell.ig-readonly textarea,
+.a-GV-cell.ig-readonly select,
+.a-GV-cell.ig-readonly button,
+.a-GV-cell.ig-readonly label,
+.a-GV-cell.ig-readonly .a-Button,
+.a-GV-cell.ig-readonly [role="button"] {
+    pointer-events: none !important;
+    cursor: default;
+} 
+
+/* Custom button system */
+/*width: var(--app-btn-width);*/
+.t-Button.btn-save {
+  height: var(--app-btn-height);
+  min-height: var(--app-btn-height);
+  padding: 0 var(--app-btn-padding-x);
+  border-radius: var(--app-btn-radius);
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: var(--app-btn-font-size);
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: none;
+  background-color: light-dark(#fff, #000000) !important;
+}
+
+/* 페이지 아이템 버튼 hover 이벤트*/
+
+.t-Button.btn-save:hover{
+    background-color: #c2d5f2;
+    border : #056ac8 solid 2px;
+}
+
+/* ig 상단 버튼 hover 이벤트 */
+.a-Toolbar .a-Button:not(:disabled):hover {
+    background-color: #c2d5f2;
+    border : #056ac8 solid 2px;
+}
+
+/* ig 버튼 내부 영역 조절*/
+.a-Toolbar .a-Button-label {
+    padding-inline: 4px;
+}
+
+
+
+
+
+/*======================= Dialog ==================*/
+.ui-dialog-titlebar-close {
+    display: none !important;
+}
+
+
+
+/*======================= Navigation ==================*/
+
+/* =========================================================
+   Navigation 2 Level 들여쓰기
+   공통관리
+     시스템
+       법인 설정
+   ========================================================= */
+#t_TreeNav
+.a-TreeView-content:has(.a-TreeView-label[aria-level="2"]) {
+    padding-left: 16px !important;
+}
+
+
+/* =========================================================
+   Header Logo 영역
+   - Header 높이를 그대로 따라감
+   - Logo 자체 크기는 변경하지 않음
+   ========================================================= */
+.t-Header-navBar--start {
+    align-self: stretch;
+
+    display: flex;
+    align-items: center;
+}
+
+
+/* =========================================================
+   APEX Navigation Path Region Wrapper
+   - APP_NAV_REGION의 실제 부모
+   ========================================================= */
+.t-Header-navBar--start> .app-nav-region-host {
+    align-self: stretch;
+
+    display: flex;
+    align-items: stretch;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   Navigation Path 영역
+   - 부모 Region 높이를 전부 사용
+   ========================================================= */
+.app-nav-region-host #APP_NAV_REGION {
+    flex: 1 1 auto;
+
+    display: flex;
+    align-items: flex-end;
+
+    box-sizing: border-box;
+
+    padding-block-end: 6px;
+}
+
+
+/* =========================================================
+   실제 경로 Text
+   ========================================================= */
+#APP_NAV_PATH {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.2;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* 네비게이션바 상하 여백 조정*/
+.t-Header-branding {
+    padding-block-end: 0 ;
+    padding-block-start: 0 ;
+}
+
+#t_TreeNav .a-TreeView-content {
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+#t_TreeNav .a-TreeView-content:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.nav-menu-tooltip {
+    display: none;
+
+    position: absolute;
+    z-index: 99999;
+
+    padding: 6px 10px;
+
+    background: rgba(0, 0, 0, 0.85);
+    color: #fff;
+
+    font-size: 12px;
+    border-radius: 4px;
+
+    white-space: nowrap;
+    pointer-events: none;
+
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+/*=============================================================*/
+
+/*============================Template=========================*/
+
+/* Optional - Floating 아이템 여백 */
+/* --ut : Universal Theme 를 사용하는 클래스 */
+.Op-Floating-Padding-2px {
+    --ut-field-padding-y: 2px;
+}
+
+.Op-Floating-Padding-4px {
+    --ut-field-padding-y: 4px;
+}
+
+.Op-Floating-Padding-8px {
+    --ut-field-padding-y: 8px;
+}
+
+
+/* Required - Floating */
+
+.Rq-Floating-Padding-2px {
+    --ut-field-padding-y: 2px;
+}
+
+.Rq-Floating-Padding-4px {
+    --ut-field-padding-y: 4px;
+}
+
+.Rq-Floating-Padding-8px {
+    --ut-field-padding-y: 8px;
+}
+
+
+/* Optional - Above 아이템 여백 */
+
+.Op-Above-Padding-2px > .t-Form-labelContainer,
+.Op-Above-Padding-2px > .t-Form-inputContainer {
+    padding-block-start: 2px;
+    padding-block-end: 2px;
+}
+
+.Op-Above-Padding-4px > .t-Form-labelContainer,
+.Op-Above-Padding-4px > .t-Form-inputContainer {
+    padding-block-start: 4px;
+    padding-block-end: 4px;
+}
+
+.Op-Above-Padding-8px > .t-Form-labelContainer,
+.Op-Above-Padding-8px > .t-Form-inputContainer {
+    padding-block-start: 8px;
+    padding-block-end: 8px;
+}
+
+
+/* Required - Above 아이템 여백 */
+.Rq-Above-Padding-2px > .t-Form-labelContainer,
+.Rq-Above-Padding-2px > .t-Form-inputContainer {
+    padding-block-start: 2px;
+    padding-block-end: 2px;
+}
+
+.Rq-Above-Padding-4px > .t-Form-labelContainer,
+.Rq-Above-Padding-4px > .t-Form-inputContainer {
+    padding-block-start: 4px;
+    padding-block-end: 4px;
+}
+
+.Rq-Above-Padding-8px > .t-Form-labelContainer,
+.Rq-Above-Padding-8px > .t-Form-inputContainer {
+    padding-block-start: 8px;
+    padding-block-end: 8px;
+}
+
+/* 텍스트 read-only */
+/* readonly input / textarea */
+.t-Form-fieldContainer.item-readonly .apex-item-text[readonly],
+.t-Form-fieldContainer.item-readonly .apex-item-textarea[readonly] {
+    background-color: light-dark(#F9F9F9, #666666) !important;
+    /*font-weight: bold;*/
+    cursor: default;
+    font-size: 12px;
+}
+
+/* operation-floating label*/
+.item-label-info {
+    color: light-dark(#60758A, #AEBFD0) !important;
+    /* Label 위치 */
+    position: relative;
+    
+}
+/* transform: translateY(-2px); */
+
+/* =========================================================
+   Read Only - Date Picker Calendar Button
+   ========================================================= */
+.t-Form-fieldContainer.item-readonly .a-Button--calendar {
+    background-color: light-dark(#F9F9F9, #666666) !important;
+    cursor: default !important;
+}
+
+
+/* =========================================================
+   Read Only - Popup Lov
+   ========================================================= */
+.t-Form-fieldContainer.item-readonly .a-Button--popupLOV {
+    background-color: light-dark(#F9F9F9, #666666) !important;
+    cursor: default !important;
+}
+
+
+
+
+/* label 자체의 위치/크기는 건드리지 않음 */
+.t-Form-fieldContainer.item-readonly .t-Form-label {
+    /*font-weight: bold !important;*/
+    font-size: 12px !important;
+}
+
+/* APEX floating label의 흰 배경만 제거 */
+/* .t-Form-fieldContainer.item-readonly .t-Form-label::before {
+    background-color: #D3D3D3 !important;
+} */
+
+/* 클릭했을 때 파란 Input Focus 효과 제거 */
+.item-readonly .apex-item-text[readonly]:focus,
+.item-readonly .apex-item-textarea[readonly]:focus {
+  outline: none !important;
+  box-shadow: none !important;
+} 
+
+/* required 외곽 빨간색 색상 표기*/
+.t-Form-fieldContainer--floatingLabel.is-required .t-Form-itemRequired-marker:before{
+    border: none;
+}
+
+/*Required 좌측 상단 위 별 표기.*/
+.required-marker {
+    color: #991b1b;
+    line-height: inherit;
+    vertical-align: baseline;
+    font-size: inherit;
+    font-weight: bold ;
+    margin-right: 4px;
+
+    display: inline-block;
+    transform: scale(1.4);
+    transform-origin: center;
+}
+
+
+/* Checkbox 뒤쪽 Required * 제거 */
+.apex-item-single-checkbox::after {
+    content: none !important;
+    display: none !important;
+}
+
+
+
+
+
+/* PAGE_ITEM HEIGHT */
+.t-Form-fieldContainer--floatingLabel{
+--ut-field-fl-label-line-height : 0.75rem
+}
+/* -----ITEM VALUE - BOLD---------- */
+/* check box 는 제외 apex-item-single-checkbox*/
+.item-font-bold :is(
+    input,
+    select,
+    textarea,
+    .apex-item-display-only
+) {
+    /* font-weight: bold; */
+    font-size : 12px; 
+
+
+    /* 기존 Item 높이 유지 */
+    height: 40px !important;
+    box-sizing: border-box !important;
+
+    /* 글자 자체 높이 */
+    line-height: 18px !important;
+
+    /* 위쪽 공간을 크게 → 글자가 아래로 이동 */
+    padding-top: 20px !important;
+
+    /* 아래쪽 공간은 작게 */
+    padding-bottom: 2px !important;
+
+    /* 배경색 제거 */
+    background-color: light-dark(#fff, #000000) !important;
+}
+
+/*=========Region Margin Css=============*/
+
+.margin-top-0px{
+    margin-top : var(--app-Region-0px-Margin);
+}
+
+.margin-left-0px{
+    margin-left : var(--app-Region-0px-Margin);
+}
+
+.margin-right-0px{
+    margin-right : var(--app-Region-0px-Margin);
+}
+
+.margin-bottom-0px{
+    margin-bottom : var(--app-Region-0px-Margin);
+}
+
+/*=================4px=======================*/
+.margin-top-4px{
+    margin-top : var(--app-Region-4px-Margin);
+}
+
+.margin-left-4px{
+    margin-left : var(--app-Region-4px-Margin);
+}
+
+.margin-right-4px{
+    margin-right : var(--app-Region-4px-Margin);
+}
+
+.margin-bottom-4px{
+    margin-bottom : var(--app-Region-4px-Margin);
+}
+
+/*=================8px=======================*/
+.margin-top-8px{
+    margin-top : var(--app-Region-8px-Margin);
+}
+
+.margin-left-8px{
+    margin-left : var(--app-Region-8px-Margin);
+}
+
+.margin-right-8px{
+    margin-right : var(--app-Region-8px-Margin);
+}
+
+.margin-bottom-8px{
+    margin-bottom : var(--app-Region-8px-Margin);
+}
+
+
+/*=================4px=======================*/
+.margin-top-16px{
+    margin-top : var(--app-Region-16px-Margin);
+}
+
+.margin-left-16px{
+    margin-left : var(--app-Region-16px-Margin);
+}
+
+.margin-right-16px{
+    margin-right : var(--app-Region-16px-Margin);
+}
+
+.margin-bottom-16px{
+    margin-bottom : var(--app-Region-16px-Margin);
+}
+
+
+
+/*=========login custom css =============*/
+/* 4px */
+.app-login-spacing-4 .t-Form-fieldContainer {
+    padding-block: 4px !important;
+}
+
+.app-login-spacing-4 .t-Form-inputContainer {
+    padding-bottom: 4px !important;
+}
+
+/* 8px */
+.app-login-spacing-8 .t-Form-fieldContainer {
+    padding-block: 8px !important;
+}
+
+.app-login-spacing-8 .t-Form-inputContainer {
+    padding-bottom: 8px !important;
+}
+
+/* 12px */
+.app-login-spacing-12 .t-Form-fieldContainer {
+    padding-block: 12px !important;
+}
+
+.app-login-spacing-12 .t-Form-inputContainer {
+    padding-bottom: 12px !important;
+}
+
+/* 
+.row > .col:has(> .t-Button.btn-pos-left),
+.row > .col:has(> .t-Button.btn-pos-right) {
+    padding: 0px 2px !important;
+} */
+
+
+/* Button Position */
+.row > .col:has(> .t-Button.btn-pos-left),
+.row > .col:has(> .t-Button.btn-pos-right) {
+    display: flex;
+    /* 세로 하단 정렬 */
+    align-items: flex-end;
+    padding-bottom: 8px;
+    padding-inline: 4px;
+}
+
+/* LEFT */
+.row > .col:has(> .t-Button.btn-pos-left) {
+    justify-content: flex-start;
+}
+
+/* RIGHT */
+.row > .col:has(> .t-Button.btn-pos-right) {
+    justify-content: flex-end;
+    margin-inline-start: auto;
+}
+
+/*============================Template=========================*/
+
+
+/* Static-ID-scoped search button alignment */
+#RG_SEARCH .t-Region-body .row { align-items: stretch; }
+
+ 
+
+/* 버튼 또는 체크박스를 포함한 컬럼 */
+#RG_SEARCH .t-Region-body .col:has(.apex-item-wrapper--single-checkbox),
+#RG_SEARCH .t-Region-body [class*="col-"]:has(.apex-item-wrapper--single-checkbox){
+  display: flex;
+  align-items: center;          /* flex-end → center */
+  justify-content: flex-start;
+  flex: 0 0 auto;
+  width: auto;
+  max-width: none;
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+
+#RG_SEARCH .apex-item-wrapper--radiogroup .apex-item-group {
+  margin-block-start: 12px !important;
+}
+
+/* 실제 Checkbox 영역 */
+#RG_SEARCH .apex-item-single-checkbox {
+    display: flex !important;
+    align-items: center !important;
+
+    height: 40px !important;
+
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    padding-block: 0 !important;
+
+    margin: 0 !important;
+}
+
+
+#RG_SEARCH 
+/* Static-ID-scoped numbered titles */
+#RG_SEARCH .t-Region-header,
+#PERSON_IG_REGION .t-Region-header,
+#PERSON_PROFILE_REGION .t-Region-header,
+#PERSON_DETAIL_REGION .t-Region-header {
+  min-height: 36px;
+  padding: 0px;
+  display: flex;
+  align-items: center;
+  background: var(--app-surface-bg);
+  color: var(--app-surface-text);
+  border: 0;
+  border-bottom: 0;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+/* Header 제목 영역: 상하 4px / 좌우 12px */
+#RG_SEARCH .t-Region-headerItems--title,
+#PERSON_IG_REGION .t-Region-headerItems--title,
+#PERSON_PROFILE_REGION .t-Region-headerItems--title,
+#PERSON_DETAIL_REGION .t-Region-headerItems--title {
+  padding: 4px 12px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#RG_SEARCH .t-Region-title,
+#PERSON_IG_REGION .t-Region-title,
+#PERSON_PROFILE_REGION .t-Region-title,
+#PERSON_DETAIL_REGION .t-Region-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 900;
+  line-height: 24px;
+  color: var(--app-surface-text);
+}
+
+
+
+
+
+/* Opt-in IG styles: IG Region CSS Classes = app-ig-standard */
+.app-ig-standard .a-GV-w-hdr th {
+  font-size: 12px;
+  background-color: color-mix(in srgb, var(--app-color-primary) 16%, var(--app-surface-bg));
+  color: var(--app-surface-text);
+}
+.app-ig-standard .a-GV-table td,
+.app-ig-standard .a-GV-cell.col-small-text,
+.app-ig-standard .a-GV-cell.col-middle-text,
+.app-ig-standard .a-GV-cell.col-large-text { font-size: 14px; }
+.app-ig-standard .a-GV-table td.req-col {
+  background-color: color-mix(in srgb, #facc15 22%, var(--app-surface-bg));
+  color: var(--app-surface-text);
+}
+
+/* Custom icons */
+.commonness_icon::before,
+.specification_icon::before,
+.business_icon::before,
+.production_icon::before,
+.outsourcing_icon::before,
+.purchase_icon::before,
+.material_icon::before,
+.quality_icon::before,
+.facility_icon::before,
+.computation_icon::before,
+.accounting_icon::before,
+.hrm_icon::before,
+.cost_icon::before,
+.Gemini_icon::before,
+.login_icon::before {
+  content: "";
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.commonness_icon::before { width: 24px; height: 24px; background-image: url(%EA%B3%B5%ED%86%B5.png); }
+.specification_icon::before { width: 24px; height: 24px; background-image: url(사양관리_icon.png); }
+.business_icon::before { width: 24px; height: 24px; background-image: url(영업관리_icon.png); }
+.production_icon::before { width: 24px; height: 24px; background-image: url(생산관리_icon.png); }
+.outsourcing_icon::before { width: 24px; height: 24px; background-image: url(외주관리_icon.png); }
+.purchase_icon::before { width: 24px; height: 24px; background-image: url(구매관리_icon.png); }
+.material_icon::before { width: 24px; height: 24px; background-image: url(자재관리_icon.png); }
+.quality_icon::before { width: 24px; height: 24px; background-image: url(품질관리_icon.png); }
+.facility_icon::before { width: 24px; height: 24px; background-image: url(설비관리_icon.png); }
+.computation_icon::before { width: 24px; height: 24px; background-image: url(전산관리_icon.png); }
+.accounting_icon::before { width: 24px; height: 24px; background-image: url(회계관리_icon.png); }
+.hrm_icon::before { width: 24px; height: 24px; background-image: url(hrm_icon.png); }
+.cost_icon::before { width: 24px; height: 24px; background-image: url(원가관리_icon.png); }
+.Gemini_icon::before { width: 16px; height: 16px; background-image: url(ais.png); }
+.login_icon::before { width: 100%; height: 100%; background-image: url(logo.png); background-size: cover; }
+
+/* Alert badge */
+#BTN_ALERT { position: relative; overflow: visible; transition: transform .15s ease-in-out; }
+#BTN_ALERT.has-alert::after {
+  content: attr(data-alert-count);
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  min-width: 14px;
+  height: 14px;
+  padding-inline: 4px;
+  border-radius: 7px;
+  background: #e53935;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 14px;
+  text-align: center;
+  z-index: 9999;
+  animation: alertBadgeBlinkRight 1s infinite;
+}
+@keyframes alertBadgeBlinkRight {
+  0%, 100% { opacity: 1; transform: translateY(-50%) scale(1); }
+  50% { opacity: .35; transform: translateY(-50%) scale(1.15); }
+}
+#BTN_ALERT:hover { transform: scale(1.08); }
+#BTN_ALERT.has-alert:hover::after { opacity: 1; animation-play-state: paused; transform: translateY(-50%) scale(1.15); }
+
+/* Bookmark */
+#bookmark {
+  position: fixed;
+  top: 27px;
+  left: -160px;
+  z-index: 1;
+  padding: 15px 20px;
+  border-radius: 0 30px 30px 0;
+  background: #ccc;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 1);
+  font: 15px/1.4 serif;
+  text-align: center;
+  transform: translateY(-50%);
+  transition: left .4s ease-in-out;
+}
+#bookmark:hover { left: 0; cursor: pointer; }
+#bookmark-list {
+  position: fixed;
+  top: var(--header-h, 48px);
+  right: 0;
+  width: 250px;
+  max-height: calc(100vh - var(--header-h, 48px) - 16px);
+  overflow-y: auto;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  background: #f7f7f7;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .08);
+  font: 15px/1.4 serif;
+}
+#bookmark-list ul { margin: 0; padding: 0; list-style: none; }
+#bookmark-list li:hover { color: red; font-size: 18px; }
+
+
+
+/* =========================================================
+   ERROR PAGE Font Size 변경
+
+   =======================================================*/
+
+/* 1. 사용자 오류 메시지 */
+.t-Alert--danger .t-Alert-body .t-Alert-errorTitle {
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+
+/* 2. APEX 추가 오류 메시지 */
+.t-Alert--danger .t-Alert-body > p {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+
+/* 3. Technical Info 제목 */
+.t-Alert--danger .a-Error-details > h2 {
+    font-size: 20px;
+    font-weight: 700;
+}
+/* =========================================================
+   Interactive Grid 기본 Save 버튼 숨김
+   ========================================================= */
+
+.a-IG .a-Toolbar button[data-action="save"],
+.a-IG .a-Toolbar .a-Toolbar-item[data-action="save"] {
+    display: none !important;
+}
+/* =========================================================
+   IG Pagination + Rows Per Page 위치 설정
+
+   Region Template Option Classes
+   - use-global-page-size
+   - ig-pagination-center
+   - ig-pagination-right
+
+   우선순위
+   - Center와 Right 모두 선택: Center
+   - Center만 선택: Center
+   - Right만 선택: Right
+   - 모두 미선택: Right
+
+   핵심
+   - Pagination 위치는 JavaScript 클래스에 의존하지 않음
+   - Region Template Option 클래스를 CSS가 직접 감지
+   - APEX Footer 재렌더링 순간에도 즉시 위치 적용
+   ========================================================= */
+
+
+/* =========================================================
+   실제 Pagination 부모 공통 설정
+   ========================================================= */
+
+.use-global-page-size
+*:has(> .a-GV-pagination),
+.use-global-page-size
+*:has(> .a-IG-pagination) {
+    width: 100%;
+    min-height: 38px;
+
+    box-sizing: border-box;
+    align-items: center;
+}
+
+
+/* =========================================================
+   Pagination 공통
+   ========================================================= */
+
+.use-global-page-size
+*:has(> .a-GV-pagination)
+> .a-GV-pagination,
+.use-global-page-size
+*:has(> .a-IG-pagination)
+> .a-IG-pagination {
+    width: auto;
+    min-width: 0;
+
+    flex: 0 0 auto;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   표시 건수 공통
+   ========================================================= */
+
+.use-global-page-size
+.global-ig-page-size {
+    position: static;
+
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+
+    transform: none;
+
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: 6px;
+
+    margin: 0;
+
+    white-space: nowrap;
+    z-index: auto;
+}
+
+
+/* =========================================================
+   Center
+
+   선택 행 수 : 좌측
+   Pagination : 정확한 가운데
+   표시 건수  : Pagination 오른쪽
+
+   Region에 ig-pagination-center가 있으면 즉시 적용
+   ========================================================= */
+
+.use-global-page-size.ig-pagination-center
+*:has(> .a-GV-pagination),
+.use-global-page-size.ig-pagination-center
+*:has(> .a-IG-pagination) {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        auto
+        minmax(0, 1fr);
+
+    align-items: center;
+    column-gap: 12px;
+
+    width: 100%;
+    min-height: 38px;
+
+    padding: 0 8px;
+    box-sizing: border-box;
+}
+
+
+/*
+ * Pagination 정확한 가운데
+ */
+.use-global-page-size.ig-pagination-center
+*:has(> .a-GV-pagination)
+> .a-GV-pagination,
+.use-global-page-size.ig-pagination-center
+*:has(> .a-IG-pagination)
+> .a-IG-pagination {
+    grid-column: 2;
+    grid-row: 1;
+
+    justify-self: center;
+
+    width: auto;
+
+    margin-left: 0;
+    margin-right: 0;
+
+    flex: 0 0 auto;
+    white-space: nowrap;
+}
+
+
+/*
+ * 표시 건수는 Pagination 오른쪽 열
+ */
+.use-global-page-size.ig-pagination-center
+*:has(> .a-GV-pagination)
+> .global-ig-page-size,
+.use-global-page-size.ig-pagination-center
+*:has(> .a-IG-pagination)
+> .global-ig-page-size {
+    grid-column: 3;
+    grid-row: 1;
+
+    justify-self: start;
+
+    position: static;
+    transform: none;
+
+    margin: 0;
+}
+
+
+/*
+ * Center 상태에서 선택 행 수가 직접 자식인 경우 좌측 고정
+ */
+.use-global-page-size.ig-pagination-center
+*:has(> .a-GV-pagination)
+> .a-GV-status,
+.use-global-page-size.ig-pagination-center
+*:has(> .a-IG-pagination)
+> .a-IG-status {
+    grid-column: 1;
+    grid-row: 1;
+
+    justify-self: start;
+
+    margin: 0;
+}
+
+
+/* =========================================================
+   Right
+
+   Center 클래스가 없는 모든 경우 적용
+   - Right 선택
+   - 위치 옵션 미선택
+
+   선택 행 수 : 좌측
+   Pagination : 우측
+   표시 건수  : Pagination 오른쪽
+   ========================================================= */
+
+.use-global-page-size:not(.ig-pagination-center)
+*:has(> .a-GV-pagination),
+.use-global-page-size:not(.ig-pagination-center)
+*:has(> .a-IG-pagination) {
+    display: flex;
+
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+
+    width: 100%;
+    min-height: 38px;
+
+    padding: 0 8px;
+    box-sizing: border-box;
+}
+
+
+/*
+ * Pagination부터 우측 정렬
+ */
+.use-global-page-size:not(.ig-pagination-center)
+*:has(> .a-GV-pagination)
+> .a-GV-pagination,
+.use-global-page-size:not(.ig-pagination-center)
+*:has(> .a-IG-pagination)
+> .a-IG-pagination {
+    flex: 0 0 auto;
+
+    width: auto;
+
+    margin-left: auto;
+    margin-right: 0;
+
+    white-space: nowrap;
+}
+
+
+/*
+ * 표시 건수는 Pagination 오른쪽
+ */
+.use-global-page-size:not(.ig-pagination-center)
+*:has(> .a-GV-pagination)
+> .global-ig-page-size,
+.use-global-page-size:not(.ig-pagination-center)
+*:has(> .a-IG-pagination)
+> .global-ig-page-size {
+    position: static;
+
+    flex: 0 0 auto;
+
+    margin: 0;
+    transform: none;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   선택 행 수 공통
+   ========================================================= */
+
+.use-global-page-size
+.a-GV-status,
+.use-global-page-size
+.a-IG-status {
+    min-width: 0;
+
+    margin: 0;
+
+    flex: 0 0 auto;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   표시 건수 UI
+   ========================================================= */
+
+.use-global-page-size
+.global-ig-page-size__label {
+    margin: 0;
+
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 30px;
+
+    color: #4b5563;
+}
+
+/* border: 1px solid #cbd5e1;  color: #1f2937;*/
+.use-global-page-size
+.global-ig-page-size__select {
+    width: 80px;
+    min-width: 76px;
+    height: 30px;
+    margin: 0;
+    padding: 0 24px 0 8px;
+    border-radius: 3px;
+    background-color: light-dark(#fff, #000000) !important;
+
+    font-size: 12px;
+    line-height: 28px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+
+.use-global-page-size
+.global-ig-page-size__select:focus {
+    border-color: #2563eb;
+
+    outline:
+        2px solid
+        rgba(37, 99, 235, 0.15);
+
+    outline-offset: 0;
+}
+
+
+/* =========================================================
+   모바일
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .use-global-page-size
+    .global-ig-page-size__label {
+        display: none;
+    }
+
+    .use-global-page-size
+    .global-ig-page-size__select {
+        width: 66px;
+        min-width: 66px;
+    }
+
+    /*
+     * 모바일에서는 Center도 우측 정렬 형태로 변경
+     */
+    .use-global-page-size.ig-pagination-center
+    *:has(> .a-GV-pagination),
+    .use-global-page-size.ig-pagination-center
+    *:has(> .a-IG-pagination) {
+        display: flex;
+
+        align-items: center;
+        justify-content: flex-start;
+        gap: 6px;
+    }
+
+    .use-global-page-size.ig-pagination-center
+    *:has(> .a-GV-pagination)
+    > .a-GV-pagination,
+    .use-global-page-size.ig-pagination-center
+    *:has(> .a-IG-pagination)
+    > .a-IG-pagination {
+        grid-column: auto;
+        grid-row: auto;
+        justify-self: auto;
+
+        margin-left: auto;
+        margin-right: 0;
+    }
+
+    .use-global-page-size.ig-pagination-center
+    *:has(> .a-GV-pagination)
+    > .global-ig-page-size,
+    .use-global-page-size.ig-pagination-center
+    *:has(> .a-IG-pagination)
+    > .global-ig-page-size {
+        grid-column: auto;
+        grid-row: auto;
+        justify-self: auto;
+    }
+
+
+    
+}
+
+/* =========================================================
+   Global Bookmark Tree Popup
+   Static ID: BookMarkTree
+   ========================================================= */
+
+/* =========================================================
+   1. Tree Region 전체/Global Bookmark Tree 고정 크기
+   ========================================================= */
+#BookMarkTree {
+    display: none;
+
+    position: fixed;
+    z-index: 10000;
+
+    width: 358px !important;
+    min-width: 358px !important;
+    max-width: 358px !important;
+
+    height: 400px !important;
+    min-height: 400px !important;
+    max-height: 400px !important;
+
+    margin: 0 !important;
+    padding: 0;
+
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.16);
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+
+    box-sizing: border-box;
+    overflow: hidden;
+    transform: none !important;
+}
+/* Region 내부 높이 확장 */
+#BookMarkTree .t-Region-bodyWrap,
+#BookMarkTree .t-Region-body {
+    height: 100% !important;
+    min-height: 0 !important;
+
+    margin: 0 !important;
+    padding: 0;
+
+    background: #ffffff;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   2. Region Header
+   ========================================================= */
+#BookMarkTree .t-Region-header {
+    min-height: 38px;
+    padding: 6px 10px;
+
+    margin: 0;
+
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+
+/* =========================================================
+   3. Region Title
+   ========================================================= */
+#BookMarkTree .t-Region-title {
+    margin: 0;
+
+    color: #1f2937;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 26px;
+}
+
+
+/* =========================================================
+   4. Region Body
+   ========================================================= */
+#BookMarkTree .t-Region-bodyWrap,
+#BookMarkTree .t-Region-body {
+    margin: 0 !important;
+    padding: 0;
+
+    background: #ffffff;
+}
+
+
+/* =========================================================
+   5. Tree 목록 스크롤 영역
+   ========================================================= */
+#BookMarkTree .a-TreeView {
+    width: 100%;
+    min-width: 0;
+    max-height: 430px;
+
+    padding: 8px 6px;
+    margin: 0;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    background: #ffffff;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   6. Tree 노드 기본 행
+   ========================================================= */
+#BookMarkTree .a-TreeView-row {
+    min-height: 30px;
+
+    border-radius: 4px;
+    background: transparent;
+}
+
+
+/* =========================================================
+   7. Tree 노드 내용
+   ========================================================= */
+#BookMarkTree .a-TreeView-content {
+    min-height: 30px;
+
+    padding-top: 4px;
+    padding-bottom: 4px;
+
+    color: #1f2937;
+    border-radius: 4px;
+}
+
+
+/* =========================================================
+   8. Tree 항목 명칭
+   ========================================================= */
+#BookMarkTree .a-TreeView-label {
+    color: #1f2937;
+
+    font-size: 13px;
+    line-height: 22px;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   9. Tree 링크
+   ========================================================= */
+#BookMarkTree .a-TreeView-content a,
+#BookMarkTree .a-TreeView-label a {
+    color: #1f2937;
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   10. Tree 아이콘
+   ========================================================= */
+#BookMarkTree .a-TreeView-icon {
+    width: 18px;
+    min-width: 18px;
+
+    margin-right: 4px;
+
+    color: #1f2937;
+}
+
+
+/* Font APEX 아이콘 */
+#BookMarkTree .fa {
+    color: #1f2937;
+}
+
+
+/* =========================================================
+   11. 펼침/접힘 화살표
+   ========================================================= */
+#BookMarkTree .a-TreeView-toggle {
+    color: #6b7280;
+}
+
+
+/* =========================================================
+   12. Hover 상태
+   ========================================================= */
+#BookMarkTree .a-TreeView-row:hover,
+#BookMarkTree .a-TreeView-content:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+
+/* =========================================================
+   13. 선택/포커스 노드 배경
+   ========================================================= */
+#BookMarkTree .a-TreeView-content.is-selected,
+#BookMarkTree .a-TreeView-content.is-focused,
+#BookMarkTree .a-TreeView-content[aria-selected="true"],
+#BookMarkTree .a-TreeView-node.is-selected > .a-TreeView-content,
+#BookMarkTree .a-TreeView-node.is-focused > .a-TreeView-content,
+#BookMarkTree .a-TreeView-node[aria-selected="true"] > .a-TreeView-content,
+#BookMarkTree .a-TreeView-row.is-selected,
+#BookMarkTree .a-TreeView-row.is-focused,
+#BookMarkTree .a-TreeView-row.is-selected.is-focused {
+    background-color: #eef4ff !important;
+    color: #1f2937 !important;
+}
+
+
+/* =========================================================
+   14. 선택/포커스 노드 명칭
+   ========================================================= */
+#BookMarkTree .a-TreeView-content.is-selected .a-TreeView-label,
+#BookMarkTree .a-TreeView-content.is-focused .a-TreeView-label,
+#BookMarkTree .a-TreeView-content[aria-selected="true"] .a-TreeView-label,
+#BookMarkTree .a-TreeView-node.is-selected > .a-TreeView-content .a-TreeView-label,
+#BookMarkTree .a-TreeView-node.is-focused > .a-TreeView-content .a-TreeView-label,
+#BookMarkTree .a-TreeView-node[aria-selected="true"] > .a-TreeView-content .a-TreeView-label,
+#BookMarkTree .a-TreeView-row.is-selected .a-TreeView-label,
+#BookMarkTree .a-TreeView-row.is-focused .a-TreeView-label {
+    color: #1f2937 !important;
+}
+
+
+/* =========================================================
+   15. 선택/포커스 노드 링크
+   ========================================================= */
+#BookMarkTree .a-TreeView-content.is-selected a,
+#BookMarkTree .a-TreeView-content.is-focused a,
+#BookMarkTree .a-TreeView-content[aria-selected="true"] a,
+#BookMarkTree .a-TreeView-node.is-selected > .a-TreeView-content a,
+#BookMarkTree .a-TreeView-node.is-focused > .a-TreeView-content a,
+#BookMarkTree .a-TreeView-node[aria-selected="true"] > .a-TreeView-content a,
+#BookMarkTree .a-TreeView-row.is-selected a,
+#BookMarkTree .a-TreeView-row.is-focused a {
+    color: #1f2937 !important;
+}
+
+
+/* =========================================================
+   16. 선택/포커스 노드 아이콘
+   ========================================================= */
+#BookMarkTree .a-TreeView-content.is-selected .a-TreeView-icon,
+#BookMarkTree .a-TreeView-content.is-focused .a-TreeView-icon,
+#BookMarkTree .a-TreeView-content[aria-selected="true"] .a-TreeView-icon,
+#BookMarkTree .a-TreeView-node.is-selected > .a-TreeView-content .a-TreeView-icon,
+#BookMarkTree .a-TreeView-node.is-focused > .a-TreeView-content .a-TreeView-icon,
+#BookMarkTree .a-TreeView-node[aria-selected="true"] > .a-TreeView-content .a-TreeView-icon,
+#BookMarkTree .a-TreeView-row.is-selected .a-TreeView-icon,
+#BookMarkTree .a-TreeView-row.is-focused .a-TreeView-icon,
+#BookMarkTree .a-TreeView-content.is-selected .fa,
+#BookMarkTree .a-TreeView-content.is-focused .fa,
+#BookMarkTree .a-TreeView-content[aria-selected="true"] .fa,
+#BookMarkTree .a-TreeView-node.is-selected > .a-TreeView-content .fa,
+#BookMarkTree .a-TreeView-node.is-focused > .a-TreeView-content .fa,
+#BookMarkTree .a-TreeView-node[aria-selected="true"] > .a-TreeView-content .fa {
+    color: #1f2937 !important;
+}
+
+
+/* =========================================================
+   17. 선택/포커스 노드 펼침/접힘 화살표
+   ========================================================= */
+#BookMarkTree .a-TreeView-content.is-selected .a-TreeView-toggle,
+#BookMarkTree .a-TreeView-content.is-focused .a-TreeView-toggle,
+#BookMarkTree .a-TreeView-content[aria-selected="true"] .a-TreeView-toggle,
+#BookMarkTree .a-TreeView-node.is-selected > .a-TreeView-toggle,
+#BookMarkTree .a-TreeView-node.is-focused > .a-TreeView-toggle,
+#BookMarkTree .a-TreeView-node[aria-selected="true"] > .a-TreeView-toggle,
+#BookMarkTree .a-TreeView-row.is-selected .a-TreeView-toggle,
+#BookMarkTree .a-TreeView-row.is-focused .a-TreeView-toggle {
+    color: #6b7280 !important;
+}
+
+
+/* =========================================================
+   18. 선택 노드 내부 전체 색상 강제 보정
+   ========================================================= */
+#BookMarkTree .a-TreeView-content.is-selected *,
+#BookMarkTree .a-TreeView-content.is-focused *,
+#BookMarkTree .a-TreeView-content[aria-selected="true"] *,
+#BookMarkTree .a-TreeView-node.is-selected > .a-TreeView-content *,
+#BookMarkTree .a-TreeView-node.is-focused > .a-TreeView-content *,
+#BookMarkTree .a-TreeView-node[aria-selected="true"] > .a-TreeView-content *,
+#BookMarkTree .a-TreeView-row.is-selected *,
+#BookMarkTree .a-TreeView-row.is-focused * {
+    color: #1f2937 !important;
+}
+
+
+/* =========================================================
+   19. Region 하단 버튼 영역
+   ========================================================= */
+#BookMarkTree .t-Region-buttons-bottom,
+#BookMarkTree .t-ButtonRegion {
+    padding: 8px 10px;
+
+    background: #ffffff;
+    border-top: 1px solid #e5e7eb;
+}
+
+
+/* =========================================================
+   20. 하단 버튼 정렬
+   ========================================================= */
+#BookMarkTree .t-Region-buttons-bottom {
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   21. 모바일 대응
+   ========================================================= */
+@media (max-width: 600px) {
+    #BookMarkTree {
+        width: calc(100vw - 16px);
+        max-height: calc(100vh - 90px);
+
+        left: 8px !important;
+        right: 8px !important;
+    }
+
+    #BookMarkTree .a-TreeView {
+        max-height: calc(100vh - 170px);
+    }
+}
+
+
+/* =========================================================
+   Bookmark Tree jQuery UI Drag & Drop
+   ========================================================= */
+
+/* 이동 가능한 페이지 북마크 */
+#BookMarkTree .is-bookmark-draggable {
+    cursor: grab !important;
+    user-select: none;
+}
+
+/* 드래그 중인 원본 */
+#BookMarkTree .is-bookmark-draggable.is-bookmark-dragging {
+    cursor: grabbing !important;
+    opacity: 0.45;
+}
+
+/* 마우스를 따라 이동하는 복제본 */
+.bookmark-drag-helper {
+    padding: 5px 8px;
+
+    background: #ffffff;
+    border: 1px solid #93c5fd;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+
+    color: #1f2937;
+    font-size: 13px;
+
+    pointer-events: none;
+}
+
+/* Drop 가능한 폴더 */
+#BookMarkTree .is-bookmark-folder {
+    transition:
+        background-color 0.12s ease,
+        outline-color 0.12s ease;
+}
+
+/* 현재 Drop 대상 폴더 */
+#BookMarkTree .is-bookmark-drop-target {
+    background-color: #dbeafe !important;
+    outline-offset: -2px;
+    border-radius: 4px;
+}
+
+/* =========================================================
+   Global Bookmark Tree 선택/포커스 외곽선 제거
+   ========================================================= */
+
+#BookMarkTree .a-TreeView-row:focus,
+#BookMarkTree .a-TreeView-content:focus,
+#BookMarkTree .a-TreeView-row:focus-visible,
+#BookMarkTree .a-TreeView-content:focus-visible,
+#BookMarkTree .a-TreeView-row.is-focused,
+#BookMarkTree .a-TreeView-content.is-focused,
+#BookMarkTree .a-TreeView-row.is-selected,
+#BookMarkTree .a-TreeView-content.is-selected,
+#BookMarkTree .a-TreeView-content[aria-selected="true"] {
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: transparent !important;
+}
+
+/* Drop 대상 내부 색상 */
+#BookMarkTree .is-bookmark-drop-target,
+#BookMarkTree .is-bookmark-drop-target *,
+#BookMarkTree .is-bookmark-drop-target .a-TreeView-label,
+#BookMarkTree .is-bookmark-drop-target .a-TreeView-icon,
+#BookMarkTree .is-bookmark-drop-target .fa {
+    color: #1e3a8a !important;
+}
+
+
+/* =========================================================
+   Bookmark Tree Context Menu
+   ========================================================= */
+
+#BookmarkContextMenu.bookmark-context-menu {
+    display: none;
+
+    position: fixed;
+    z-index: 30000;
+
+    width: 220px;
+    min-width: 190px;
+
+    padding: 6px 0;
+
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.18);
+    border-radius: 8px;
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.22);
+
+    box-sizing: border-box;
+}
+
+/* 메뉴 항목 */
+#BookmarkContextMenu
+.bookmark-context-menu__item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    width: 100%;
+    min-height: 36px;
+
+    padding: 7px 14px;
+
+    border: 0;
+    background: transparent;
+
+    color: #1f2937;
+    font-size: 13px;
+    line-height: 20px;
+    text-align: left;
+
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+/* 메뉴 Hover */
+#BookmarkContextMenu
+.bookmark-context-menu__item:hover,
+#BookmarkContextMenu
+.bookmark-context-menu__item:focus {
+    background-color: #f3f4f6;
+    color: #111827;
+    outline: none;
+}
+
+/* 아이콘 */
+#BookmarkContextMenu
+.bookmark-context-menu__icon {
+    flex: 0 0 18px;
+
+    width: 18px;
+    min-width: 18px;
+
+    color: #4b5563;
+    text-align: center;
+}
+
+/* 메뉴명 */
+#BookmarkContextMenu
+.bookmark-context-menu__label {
+    flex: 1 1 auto;
+    color: inherit;
+}
+
+/* 구분선 */
+#BookmarkContextMenu
+.bookmark-context-menu__separator {
+    height: 1px;
+    margin: 5px 0;
+
+    background: #e5e7eb;
+}
+
+/* 삭제 항목 */
+#BookmarkContextMenu
+.bookmark-context-menu__item--danger {
+    color: #b91c1c;
+}
+
+#BookmarkContextMenu
+.bookmark-context-menu__item--danger
+.bookmark-context-menu__icon {
+    color: #b91c1c;
+}
+
+#BookmarkContextMenu
+.bookmark-context-menu__item--danger:hover,
+#BookmarkContextMenu
+.bookmark-context-menu__item--danger:focus {
+    background-color: #fef2f2;
+    color: #991b1b;
+}
+/* =========================================================
+   Custom Dialog Template Option
+   Remove Header Border
+   ========================================================= */
+/* 전체 APEX Modal Dialog 타이틀 하단선 제거 */
+.ui-draggable .ui-dialog-titlebar{
+    border-bottom: none;
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   MOBILE RESPONSIVE OVERRIDE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    /* -----------------------------------------
+       1. 전체 폭 계산 안정화
+       ----------------------------------------- */
+
+    .t-Body-content,
+    .t-Body-main,
+    .t-Region,
+    .t-Region-bodyWrap,
+    .t-Region-body {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+
+    /* -----------------------------------------
+       2. Form Item
+       ----------------------------------------- */
+
+    .app-form-standard .t-Form-fieldContainer,
+    .app-form-standard .t-Form-inputContainer,
+    .app-form-standard .t-Form-itemWrapper {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .app-form-standard input,
+    .app-form-standard select,
+    .app-form-standard textarea {
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+
+    /* Popup LOV */
+    .app-form-full-width .apex-item-group--popup-lov {
+        display: flex;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .app-form-full-width
+    .apex-item-group--popup-lov
+    .apex-item-popup-lov {
+        flex: 1 1 auto;
+        width: 0;
+        min-width: 0;
+    }
+
+    .app-form-full-width
+    .apex-item-group--popup-lov
+    .a-Button--popupLOV {
+        flex: 0 0 var(--app-item-height);
+        width: var(--app-item-height);
+    }
+
+
+/* -----------------------------------------
+    3. Custom Buttons
+    ----------------------------------------- */
+.t-Button.btn-save {
+    width: auto;
+    min-width: 0;
+    max-width: 100%;
+    height: 30px;
+    min-height: 36px;
+    padding-inline: 10px;
+    font-size: 12px;
+}
+
+
+/* -----------------------------------------
+    4. Search Region
+    Desktop용 flex 강제값 해제
+    ----------------------------------------- */
+
+#RG_SEARCH .t-Region-body .col:has(.t-Button),
+#RG_SEARCH .t-Region-body [class*="col-"]:has(.t-Button),
+#RG_SEARCH .t-Region-body .col:has(.apex-item-wrapper--single-checkbox),
+#RG_SEARCH .t-Region-body [class*="col-"]:has(.apex-item-wrapper--single-checkbox) {
+    flex: 1 1 auto;
+    width: auto;
+    max-width: 100%;
+    padding-inline: 4px;
+}
+
+
+    /* -----------------------------------------
+       5. Desktop 고정 Region 높이 해제
+       ----------------------------------------- */
+
+    #short_region,
+    #middle_region,
+    #large_region {
+        height: auto;
+        min-height: 0;
+        max-height: none;
+    }
+
+    #short_region .t-Region-bodyWrap,
+    #short_region .t-Region-body,
+    #middle_region .t-Region-bodyWrap,
+    #middle_region .t-Region-body,
+    #large_region .t-Region-bodyWrap,
+    #large_region .t-Region-body {
+        height: auto;
+        min-height: 0;
+        max-height: none;
+    }
+
+
+    /* -----------------------------------------
+       6. Numbered Region Header
+       ----------------------------------------- */
+
+    #RG_SEARCH .t-Region-title,
+    #PERSON_IG_REGION .t-Region-title,
+    #PERSON_PROFILE_REGION .t-Region-title,
+    #PERSON_DETAIL_REGION .t-Region-title {
+        gap: 5px;
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    #RG_SEARCH .t-Region-title::before,
+    #PERSON_IG_REGION .t-Region-title::before,
+    #PERSON_PROFILE_REGION .t-Region-title::before,
+    #PERSON_DETAIL_REGION .t-Region-title::before {
+        width: 30px;
+        height: 30px;
+        flex: 0 0 30px;
+        font-size: 13px;
+    }
+
+
+    /* -----------------------------------------
+       7. Interactive Grid
+       ----------------------------------------- */
+
+    .app-ig-standard {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        overflow: hidden;
+    }
+
+    .app-ig-standard .a-GV {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .app-ig-standard .a-GV-w-scroll {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+
+    /* -----------------------------------------
+       8. IG Toolbar
+       ----------------------------------------- */
+
+    .app-ig-standard .a-Toolbar {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .app-ig-standard .a-Toolbar-groupContainer {
+        flex-wrap: wrap;
+        max-width: 100%;
+    }
+
+    .app-ig-standard .a-Toolbar-group {
+        max-width: 100%;
+    }
+
+    .app-ig-standard .a-Toolbar .a-Button-label {
+        padding-inline: 2px;
+    }
+
+
+    /* -----------------------------------------
+       9. 모바일 여백 축소
+       ----------------------------------------- */
+
+    .app-region-compact > .t-Region-header > .t-Region-headerItems {
+        padding-inline: 6px;
+    }
+
+    .app-region-compact > .t-Region-bodyWrap > .t-Region-body {
+        padding-inline: 6px;
+    }
+}
+
